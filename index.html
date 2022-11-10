@@ -20,10 +20,44 @@
             width: 100%;
             height: 100%;
         }
+
+        .textDiv {
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            color: rgb(242, 235, 235);
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -65%);
+            text-align: center;
+            font: normal bold 3rem '幼圆';
+
+            letter-spacing: 0.4rem;
+            background-image: -webkit-linear-gradient(left, #ac14d6, #E6D205 25%, #d94310 50%, #0be842 75%, #ac14d6);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-background-size: 200% 100%;
+            -webkit-animation: maskedAnimation 3s infinite linear;
+
+        }
+
+        @keyframes maskedAnimation {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: -100% 0;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <div class="textDiv">
+        小汤<br>
+        么么哒
+    </div>
     <canvas id="pinkboard"></canvas>
     <script>
         /*
@@ -254,6 +288,9 @@
                 canvas.height = canvas.clientHeight;
             }
             window.onresize = onResize;
+            function textChange() {
+                console.log(111)
+            }
 
             // delay rendering bootstrap
             setTimeout(function () {
